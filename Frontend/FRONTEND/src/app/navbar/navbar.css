@@ -1,0 +1,78 @@
+.navbar-custom {
+  background-color: #1a001f;
+  box-shadow: 0 0 15px #7e22ce;
+  color: white;
+}
+
+.desktop-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mobile-menu-wrapper {
+  display: none;
+  width: 100%;
+}
+
+.mobile-nav-select {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px;
+}
+
+.mobile-nav-select option {
+  color: black;
+}
+
+.musor {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.musor:hover,
+.profile-link:hover {
+  color: #e9d5ff;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none;
+  }
+
+  .mobile-menu-wrapper {
+    display: block;
+    order: 2;
+  }
+
+  .profile-wrapper {
+    margin-left: 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+.profile-button {
+  background: transparent;
+}
+
+.logout-button {
+  cursor: pointer;
+}

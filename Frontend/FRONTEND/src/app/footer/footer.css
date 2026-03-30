@@ -1,0 +1,28 @@
+.music-footer {
+    background: linear-gradient(90deg, #0d0d0d, #1a001f);
+    border-top: 2px solid #7e22ce;
+    padding: 15px 30px;
+    color: #c77dff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.music-footer a {
+    color: #d8b4fe;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s ease;
+}
+
+.music-footer a:hover {
+    color: white;
+    text-shadow: 0 0 8px #a855f7;
+}

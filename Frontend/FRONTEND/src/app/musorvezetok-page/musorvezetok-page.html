@@ -1,0 +1,22 @@
+<section class="listing-page">
+  <div class="container py-5">
+    <div class="section-head mb-4">
+      <p class="eyebrow">Műsorvezetők</p>
+      <h1>Akik hangot adnak a kedvenc pillanataidnak.</h1>
+      <p>Fedezd fel műsorvezetőinket, és ismerd meg, kik szólnak hozzád a rádió hullámhosszán.</p>
+    </div>
+
+    <div class="row g-4" *ngIf="musorvezetok$ | async as musorvezetok">
+      <div class="col-12 col-md-6 col-xl-4" *ngFor="let musorvezeto of musorvezetok">
+        <article class="info-card h-100">
+          <div class="card-top">
+            <div class="avatar">{{ musorvezeto.nev.charAt(0) }}</div>
+            <span class="tag">ID #{{ musorvezeto.id }}</span>
+          </div>
+          <h2>{{ musorvezeto.nev }}</h2>
+          <p>{{ musorvezeto.bemutatkozas }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

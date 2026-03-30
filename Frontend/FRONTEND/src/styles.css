@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
