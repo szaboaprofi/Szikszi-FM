@@ -1,0 +1,21 @@
+<div class="player-shell text-center my-4">
+  <div class="record-wrapper">
+    <img src="kepek/bakelit.png" width="400 " class="record-image" [class.spinning]="isPlaying()" alt="Lemezjátszó" />
+  </div>
+
+  <div class="current-song-label">{{ currentSongTitle() }}</div>
+
+  <div class="player-controls">
+    <button class="btn btn-dark control-btn" [disabled]="!canGoPrevious()" (click)="previousSong()">
+      <img src="kepek/Balnyil.png" alt="Előző" />
+    </button>
+
+    <button class="btn btn-dark control-btn" [disabled]="!selectedSong()" (click)="togglePlay()">
+      <img [src]="isPlaying() ? 'kepek/stop.png' : 'kepek/Play.png'" alt="Lejátszás" />
+    </button>
+
+    <button class="btn btn-dark control-btn" [disabled]="!canGoNext()" (click)="nextSong()">
+      <img src="kepek/Jobbnyil.png" alt="Következő" />
+    </button>
+  </div>
+</div>

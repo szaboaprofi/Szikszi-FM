@@ -1,0 +1,111 @@
+<div class="sidebar-left p-3 h-100">
+  <h3 class="fw-bold mb-3">Lejátszási listák</h3>
+
+  @if (!user()) {
+    <p class="hint">Jelentkezz be, hogy saját listákat hozhass létre.</p>
+  } @else {
+    <div class="create-card mb-3">
+      <input
+        type="text"
+        class="form-control mb-2"
+        [ngModel]="newPlaylistName()"
+        (ngModelChange)="onPlaylistNameChange($event)"
+        placeholder="Új lista neve"
+      />
+      @if (playlistNameError()) {
+        <div class="playlist-error mb-2">{{ playlistNameError() }}</div>
+      }
+      <button class="btn create-btn w-100" [disabled]="!canCreate()" (click)="createPlaylist()">
+        + Lejátszási lista létrehozása
+      </button>
+    </div>
+  }
+
+  @if (statusMessage()) {
+    <div class="status-box mb-3">{{ statusMessage() }}</div>
+  }
+
+  <div class="list-group playlist-list">
+    @for (lista of playlists(); track lista.id) {
+      <button
+        type="button"
+        class="list-group-item list-group-item-action sidebar-link"
+        [class.active-playlist]="selectedPlaylistId() === lista.id"
+        (click)="selectPlaylist(lista.id)"
+      >
+        <div class="d-flex justify-content-between align-items-start gap-2">
+          <div>
+            <strong>{{ lista.nev }}</strong>
+            <div class="small text-light-emphasis">{{ lista.tetelek.length }} db zene</div>
+          </div>
+
+          <div class="playlist-actions">
+            @if (selectedPlaylistId() === lista.id) {
+              <span class="badge text-bg-light">Aktív</span>
+            }
+
+            @if (user()) {
+              <button
+                type="button"
+                class="delete-x-btn"
+                title="Lejátszási lista törlése"
+                aria-label="Lejátszási lista törlése"
+                (click)="$event.stopPropagation(); deletePlaylist(lista.id)"
+              >
+                X
+              </button>
+            }
+          </div>
+        </div>
+      </button>
+    } @empty {
+      <div class="empty-box">Még nincs saját lejátszási listád.</div>
+    }
+  </div>
+
+  @if (selectedPlaylist(); as activePlaylist) {
+    <div class="tree-box mt-4">
+      <div class="tree-title">{{ activePlaylist.nev }}</div>
+      <ul class="tree-root">
+        <li>
+          <span class="tree-label">Dalok</span>
+          <ul>
+            @for (tetel of activePlaylist.tetelek; track tetel.id; let i = $index) {
+              <li>
+                <div class="song-row">
+                  <button type="button" class="tree-song-btn" [class.active-song]="selectedSong()?.id === tetel.dal.id" (click)="selectSong(i)">
+                    <span class="song-order">{{ tetel.sorrend_szam }}.</span>
+                    <span>{{ tetel.dal.cim }}</span>
+                    <small>— {{ tetel.dal.eloado }}</small>
+                  </button>
+
+                  @if (user()) {
+                    <button
+                      type="button"
+                      class="delete-x-btn song-delete-btn"
+                      title="Dal törlése a lejátszási listából"
+                      aria-label="Dal törlése a lejátszási listából"
+                      (click)="removeSongFromPlaylist(tetel.id)"
+                    >
+                      X
+                    </button>
+                  }
+                </div>
+              </li>
+            } @empty {
+              <li class="empty-tree">Ez a lista még üres.</li>
+            }
+          </ul>
+        </li>
+      </ul>
+    </div>
+  }
+
+  @if (selectedSong()) {
+    <div class="selected-song-box mt-3">
+      <div class="small text-uppercase">Kiválasztott zene</div>
+      <strong>{{ selectedSong()?.cim }}</strong>
+      <div>{{ selectedSong()?.eloado }}</div>
+    </div>
+  }
+</div>

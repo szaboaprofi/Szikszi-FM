@@ -1,0 +1,34 @@
+<div class="sidebar-right p-3 h-100 position-relative right-scroll">
+  <h3 class="fw-bold mb-3">Zenék</h3>
+
+  <div class="search-box mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Keresés dalcím szerint..."
+      [ngModel]="searchTerm()"
+      (ngModelChange)="searchTerm.set($event)"
+    />
+  </div>
+
+  <div class="music-grid">
+    @for (music of filteredMusics(); track music.id) {
+      <div class="music-card" [class.selected]="playlistState.selectedSong()?.id === music.id">
+        <div>
+          <div class="music-title">{{ music.cim }}</div>
+          <div class="music-meta">{{ music.eloado }}</div>
+          <div class="music-meta">{{ music.hossza }}</div>
+        </div>
+
+        <button type="button" class="btn select-btn" (click)="selectSong(music)">
+          Kiválasztás
+        </button>
+        <button type="button" class="btn add-btn" (click)="addSelectedSong(music)">
+          Lejátszási listához adás
+        </button>
+      </div>
+    } @empty {
+      <div class="empty-search">Nincs találat erre a dalcímre.</div>
+    }
+  </div>
+</div>

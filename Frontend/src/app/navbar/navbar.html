@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid align-items-center gap-3">
+    <div class="desktop-links">
+      <a class="navbar-brand fw-bold musor" routerLink="/">Kezdőlap</a>
+      <a class="navbar-brand fw-bold musor" routerLink="/rolunk">Rólunk</a>
+      <a class="navbar-brand fw-bold musor" routerLink="/musorvezetok">Műsorvezetők</a>
+      <a class="navbar-brand fw-bold musor" routerLink="/musorok">Műsorok</a>
+    </div>
+
+    <div class="mobile-menu-wrapper">
+      <select class="form-select mobile-nav-select" (change)="navigateFromSelect(($any($event.target)).value)">
+        <option value="">Menü kiválasztása</option>
+        @for (item of mobileMenuItems; track item.path) {
+          <option [value]="item.path">{{ item.label }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="ms-auto profile-wrapper">
+      @if (isLoggedIn()) {
+        <button type="button" class="profile-link profile-button logout-button" (click)="logout()">Kijelentkezés</button>
+      } @else {
+        <a class="profile-link" routerLink="/auth">{{ navLabel() }}</a>
+      }
+    </div>
+  </div>
+</nav>

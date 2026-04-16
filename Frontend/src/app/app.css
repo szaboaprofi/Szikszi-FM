@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.app-main {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

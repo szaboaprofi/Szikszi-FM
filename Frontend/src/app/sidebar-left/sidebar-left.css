@@ -1,0 +1,130 @@
+.sidebar-left {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  min-height: 100%;
+}
+
+.hint, .empty-box, .empty-tree {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.create-card, .status-box, .tree-box, .selected-song-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.create-btn {
+  background: #8b2be2;
+  color: white;
+  border: none;
+}
+
+.playlist-list .sidebar-link {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  border-radius: 14px;
+}
+
+.playlist-list .sidebar-link.active-playlist {
+  background: rgba(139, 43, 226, 0.35);
+  border-color: rgba(139, 43, 226, 0.8);
+}
+
+.tree-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tree-root, .tree-root ul {
+  list-style: none;
+  padding-left: 14px;
+  margin: 0;
+}
+
+.tree-root ul {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 8px;
+}
+
+.tree-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.tree-song-btn {
+  width: 100%;
+  margin-top: 8px;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.tree-song-btn.active-song {
+  background: rgba(139, 43, 226, 0.35);
+  border-color: rgba(139, 43, 226, 0.85);
+}
+
+.song-order {
+  display: inline-block;
+  width: 28px;
+  font-weight: 700;
+}
+
+
+.playlist-error {
+  color: #fecaca;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+
+.playlist-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.song-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.song-row .tree-song-btn {
+  margin-top: 0;
+  flex: 1;
+}
+
+.delete-x-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background: #dc2626;
+  color: white;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.25);
+}
+
+.delete-x-btn:hover {
+  background: #ef4444;
+}
+
+.song-delete-btn {
+  flex-shrink: 0;
+}
